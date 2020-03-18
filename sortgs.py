@@ -124,12 +124,13 @@ def setup_driver():
         print("Please install Selenium and chrome webdriver for manual checking of captchas")
 
     print('Loading...')
-    chrome_options = Options()
-    chrome_options.add_argument("disable-infobars")
-    chrome_options.add_argument("disable-dev-shm-usage")
-    chrome_options.add_argument("headless")
-    chrome_options.add_argument("sortno-sandbox")
-    driver = webdriver.Chrome(chrome_options=chrome_options)
+    #chrome_options = Options()
+    chrome_options = webdriver.ChromeOptions()
+    chrome_options.add_argument('--disable-infobars')
+    chrome_options.add_argument('--disable-dev-shm-usage')
+    chrome_options.add_argument('--headless')
+    chrome_options.add_argument('--no-sandbox')
+    driver = webdriver.Chrome('chromedriver',chrome_options=chrome_options)
     return driver
 
 def get_author(content):
